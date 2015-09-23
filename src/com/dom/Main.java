@@ -22,7 +22,7 @@ public class Main {
 	private static String command = "Select * from Client";
 	
 	public static void main(String[] args) {	
-		//read = new Reader();
+		read = new Reader();
 		list = new ArrayList<BaseD>();
 		try {
 			Class.forName(nameDriver);
@@ -30,12 +30,12 @@ public class Main {
 			e.printStackTrace();
 		}
 		try {
-			//Connection connect = DriverManager.getConnection(read.getUrl(), read.getUser(), read.getPass());
-			Connection connect = DriverManager.getConnection("jdbc:mysql://Wolf", "root", "2936933");
+			Connection connect = DriverManager.getConnection(read.getUrl(), read.getUser(), read.getPass());
+			//Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1/Wolf", "root", "2936933");
 			Statement commandSQL = connect.createStatement();
 			ResultSet result = commandSQL.executeQuery(command);
 			while(result.next()){
-				list.add(new BaseD(result.getInt(0),result.getString(1),result.getString(2),result.getString(3)));
+				list.add(new BaseD(result.getInt(1),result.getString(2),result.getString(3),result.getString(4)));
 			}
 			connect.close();
 			

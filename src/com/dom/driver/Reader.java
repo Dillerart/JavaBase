@@ -6,11 +6,11 @@ import java.util.Properties;
 
 public class Reader {
 	
-	private static Properties info;
+	private Properties info;
 	
-	private static FileInputStream file;
+	private  FileInputStream file;
 	
-	private final String Path = "/home/wolf/Документы/JavaP/jav2/config";
+	private final String Path = "/home/wolf/config";
 	
 	private final String KeyURL = "URL";
 	
@@ -26,6 +26,10 @@ public class Reader {
 	private String pass;
 	
 	public Reader(){		
+		read();		
+	}
+	
+	private void read(){
 		try {
 			file = new FileInputStream(Path);
 			info.load(file);
@@ -36,7 +40,6 @@ public class Reader {
 		} catch (IOException e) {			
 			e.printStackTrace();
 		}		
-		
 	}
 	
 	public String getUrl() {
