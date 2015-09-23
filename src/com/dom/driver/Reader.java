@@ -10,7 +10,7 @@ public class Reader {
 	
 	private  FileInputStream file;
 	
-	private final String Path = "/home/wolf/config";
+	private final String Path = "/home/wolf/Документы/JavaP/jav2/config";
 	
 	private final String KeyURL = "URL";
 	
@@ -31,6 +31,7 @@ public class Reader {
 	
 	private void read(){
 		try {
+			info = new Properties();
 			file = new FileInputStream(Path);
 			info.load(file);
 			this.url = info.getProperty(KeyURL);
